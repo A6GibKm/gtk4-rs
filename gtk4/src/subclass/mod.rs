@@ -29,6 +29,7 @@ pub mod popover;
 pub mod range;
 pub mod recent_manager;
 pub mod scale;
+pub mod scale_button;
 pub mod scrollable;
 pub mod shortcut_manager;
 pub mod sorter;
@@ -74,6 +75,7 @@ pub mod prelude {
     pub use super::range::RangeImpl;
     pub use super::recent_manager::RecentManagerImpl;
     pub use super::scale::ScaleImpl;
+    pub use super::scale_button::ScaleButtonImpl;
     pub use super::scrollable::ScrollableImpl;
     pub use super::shortcut_manager::ShortcutManagerImpl;
     pub use super::sorter::SorterImpl;
