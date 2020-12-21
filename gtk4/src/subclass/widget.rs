@@ -4,6 +4,7 @@ use glib::prelude::*;
 use glib::subclass::prelude::*;
 use glib::translate::*;
 use glib::Cast;
+use glib::SignalHandlerId;
 
 use crate::{
     AccessibleRole, DirectionType, LayoutManager, Orientation, Shortcut, SizeRequestMode, Snapshot,
@@ -892,6 +893,118 @@ pub unsafe trait WidgetClassSubclassExt: ClassStruct {
         unsafe {
             let widget_class = self as *mut _ as *mut ffi::GtkWidgetClass;
             ffi::gtk_widget_class_add_shortcut(widget_class, shortcut.to_glib_none().0);
+        }
+    }
+
+    /*
+    fn install_action<F: Fn(&Widget, &str, Option<&glib::Variant>) + 'static>(
+        &mut self,
+        action_name: &str,
+        parameter_type: Option<&str>,
+        f: F,
+    ) {
+        unsafe {
+            unsafe extern "C" fn activate_trampoline<
+                F: Fn(&Widget, &str, Option<&glib::Variant>) + 'static,
+            >(
+                this: *mut ffi::GtkWidget,
+                action: *const libc::c_char,
+                parameter: *mut glib::ffi::GVariant,
+            ) {
+                f(
+                    &from_glib_borrow(this),
+                    glib::GString::from_glib_borrow(action).as_str(),
+                    Option::<glib::Variant>::from_glib_borrow(parameter)
+                        .as_ref()
+                        .as_ref(),
+                )
+            }
+
+            let widget_class = self as *mut _ as *mut ffi::GtkWidgetClass;
+            let activate_func = Some(activate_trampoline::<F> as _);
+
+            ffi::gtk_widget_class_install_action(
+                widget_class,
+                action_name.to_glib_none().0,
+                parameter_type.to_glib_none().0,
+                activate_func,
+            );
+        }
+    }
+
+
+    fn query_action(
+        &self,
+        index: u32,
+    ) -> Option<(glib::Type, glib::GString, Option<glib::VariantType>, glib::GString)> {
+        unsafe {
+            let widget_class = self as *const _ as *mut ffi::GtkWidgetClass;
+
+            let action_name = std::ptr::null_mut();
+            let parameter_type = std::ptr::null_mut();
+            let property_name = std::ptr::null_mut();
+            let owner = std::ptr::null_mut();
+
+            let action_found = from_glib(ffi::gtk_widget_class_query_action(
+                widget_class,
+                index,
+                owner,
+                action_name,
+                parameter_type,
+                property_name,
+            ));
+            println!("{:#?}" ,action_found);
+            if action_found {
+                Some((
+                    from_glib(owner as usize),
+                    from_glib_none(action_name as *const _),
+                    Option::<glib::VariantType>::from_glib_none(parameter_type as *const _),
+                    from_glib_none(property_name as *const _),
+                ))
+            } else {
+                None
+            }
+        }
+    }
+    */
+
+    fn install_property_action(&mut self, action_name: &str, property_name: &str) {
+        unsafe {
+            let widget_class = self as *mut _ as *mut ffi::GtkWidgetClass;
+            ffi::gtk_widget_class_install_property_action(
+                widget_class,
+                action_name.to_glib_none().0,
+                property_name.to_glib_none().0,
+            );
+        }
+    }
+
+    fn set_activate_signal(&mut self, signal: SignalHandlerId) {
+        unsafe {
+            let widget_class = self as *mut _ as *mut ffi::GtkWidgetClass;
+            ffi::gtk_widget_class_set_activate_signal(widget_class, signal.to_glib() as u32);
+        }
+    }
+
+    fn get_activate_signal(&self) -> Option<SignalHandlerId> {
+        unsafe {
+            let widget_class = self as *const _ as *mut ffi::GtkWidgetClass;
+            let handler_id = ffi::gtk_widget_class_get_activate_signal(widget_class);
+            if handler_id == 0 {
+                None
+            } else {
+                Some(from_glib(handler_id as u64))
+            }
+        }
+    }
+
+    fn set_activate_signal_from_name(&mut self, signal_name: &str) {
+        unsafe {
+            let widget_class = self as *mut _ as *mut ffi::GtkWidgetClass;
+            ffi::gtk_widget_class_set_activate_signal_from_name(
+                widget_class,
+                signal_name.to_glib_none().0,
+            );
         }
     }
 
