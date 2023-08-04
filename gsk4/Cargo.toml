@@ -31,7 +31,7 @@ rustdoc-args = ["--cfg", "docsrs", "--generate-link-to-definition"]
 cairo-rs = {git = "https://github.com/gtk-rs/gtk-rs-core", version = "0.19"}
 ffi = {package = "gsk4-sys", path = "./sys", version = "0.8"}
 gdk = {package = "gdk4", path = "../gdk4", version = "0.8"}
-glib = {git = "https://github.com/gtk-rs/gtk-rs-core", version = "0.19", features = ["v2_66"]}
+glib = {git = "https://github.com/ranfdev/gtk-rs-core", branch = "props_clean", version = "0.19", features = ["v2_66"]}
 graphene = {package = "graphene-rs", git = "https://github.com/gtk-rs/gtk-rs-core", version = "0.19"}
 libc = "0.2"
 pango = {git = "https://github.com/gtk-rs/gtk-rs-core", version = "0.19", features = ["v1_46"]}

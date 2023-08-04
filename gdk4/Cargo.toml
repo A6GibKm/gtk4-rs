@@ -33,7 +33,7 @@ cairo-rs = {git = "https://github.com/gtk-rs/gtk-rs-core", version = "0.19"}
 ffi = {package = "gdk4-sys", path = "./sys", version = "0.8"}
 gdk-pixbuf = {git = "https://github.com/gtk-rs/gtk-rs-core", version = "0.19"}
 gio = {git = "https://github.com/gtk-rs/gtk-rs-core", version = "0.19", features = ["v2_66"]}
-glib = {git = "https://github.com/gtk-rs/gtk-rs-core", version = "0.19", features = ["v2_66"]}
+glib = {git = "https://github.com/ranfdev/gtk-rs-core", branch = "props_clean", version = "0.19", features = ["v2_66"]}
 libc = "0.2"
 pango = {git = "https://github.com/gtk-rs/gtk-rs-core", version = "0.19", features = ["v1_46"]}
 gl = {version = "0.14", optional = true}
