@@ -792,6 +792,8 @@ pub enum EventType {
     #[cfg_attr(docsrs, doc(cfg(feature = "v4_8")))]
     #[doc(alias = "GDK_TOUCHPAD_HOLD")]
     TouchpadHold,
+    #[doc(alias = "GDK_EVENT_LAST")]
+    EventLast,
     #[doc(hidden)]
     __Unknown(i32),
 }
@@ -832,6 +834,7 @@ impl IntoGlib for EventType {
             Self::PadGroupMode => ffi::GDK_PAD_GROUP_MODE,
             #[cfg(feature = "v4_8")]
             Self::TouchpadHold => ffi::GDK_TOUCHPAD_HOLD,
+            Self::EventLast => ffi::GDK_EVENT_LAST,
             Self::__Unknown(value) => value,
         }
     }
@@ -873,6 +876,7 @@ impl FromGlib<ffi::GdkEventType> for EventType {
             ffi::GDK_PAD_GROUP_MODE => Self::PadGroupMode,
             #[cfg(feature = "v4_8")]
             ffi::GDK_TOUCHPAD_HOLD => Self::TouchpadHold,
+            ffi::GDK_EVENT_LAST => Self::EventLast,
             value => Self::__Unknown(value),
         }
     }
@@ -1623,6 +1627,8 @@ pub enum MemoryFormat {
     #[cfg_attr(docsrs, doc(cfg(feature = "v4_14")))]
     #[doc(alias = "GDK_MEMORY_X8B8G8R8")]
     X8b8g8r8,
+    #[doc(alias = "GDK_MEMORY_N_FORMATS")]
+    NFormats,
     #[doc(hidden)]
     __Unknown(i32),
 }
@@ -1694,6 +1700,7 @@ impl IntoGlib for MemoryFormat {
             Self::R8g8b8x8 => ffi::GDK_MEMORY_R8G8B8X8,
             #[cfg(feature = "v4_14")]
             Self::X8b8g8r8 => ffi::GDK_MEMORY_X8B8G8R8,
+            Self::NFormats => ffi::GDK_MEMORY_N_FORMATS,
             Self::__Unknown(value) => value,
         }
     }
@@ -1766,6 +1773,7 @@ impl FromGlib<ffi::GdkMemoryFormat> for MemoryFormat {
             ffi::GDK_MEMORY_R8G8B8X8 => Self::R8g8b8x8,
             #[cfg(feature = "v4_14")]
             ffi::GDK_MEMORY_X8B8G8R8 => Self::X8b8g8r8,
+            ffi::GDK_MEMORY_N_FORMATS => Self::NFormats,
             value => Self::__Unknown(value),
         }
     }

@@ -129,7 +129,6 @@ impl PrintUnixDialog {
 
     #[doc(alias = "gtk_print_unix_dialog_get_settings")]
     #[doc(alias = "get_settings")]
-    #[doc(alias = "print-settings")]
     pub fn settings(&self) -> PrintSettings {
         unsafe {
             from_glib_full(ffi::gtk_print_unix_dialog_get_settings(
@@ -202,7 +201,6 @@ impl PrintUnixDialog {
     }
 
     #[doc(alias = "gtk_print_unix_dialog_set_settings")]
-    #[doc(alias = "print-settings")]
     pub fn set_settings(&self, settings: Option<&PrintSettings>) {
         unsafe {
             ffi::gtk_print_unix_dialog_set_settings(
@@ -221,6 +219,16 @@ impl PrintUnixDialog {
                 support_selection.into_glib(),
             );
         }
+    }
+
+    #[doc(alias = "print-settings")]
+    pub fn print_settings(&self) -> Option<PrintSettings> {
+        ObjectExt::property(self, "print-settings")
+    }
+
+    #[doc(alias = "print-settings")]
+    pub fn set_print_settings(&self, print_settings: Option<&PrintSettings>) {
+        ObjectExt::set_property(self, "print-settings", print_settings)
     }
 
     #[doc(alias = "current-page")]
