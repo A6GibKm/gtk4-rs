@@ -183,6 +183,11 @@ status = "generate"
     [[object.function]]
     name = "foreach_intersection"
     manual = true # tries to call from_glib_borrow on an enum
+    [[object.function]]
+    name = "equal"
+    # We implement manually. We use ignore instead of manual in order to not
+    # pick up PartialEq and Eq automatically.
+    ignore = true
 
 [[object]]
 name = "Gsk.PathBuilder"

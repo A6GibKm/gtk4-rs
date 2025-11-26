@@ -80,6 +80,18 @@ impl Path {
             ))
         }
     }
+
+    #[cfg(feature = "v4_22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "v4_22")))]
+    #[doc(alias = "gsk_path_equal")]
+    fn equal(&self, path2: &Path) -> bool {
+        unsafe {
+            from_glib(ffi::gsk_path_equal(
+                self.to_glib_none().0,
+                path2.to_glib_none().0,
+            ))
+        }
+    }
 }
 
 impl std::str::FromStr for Path {
