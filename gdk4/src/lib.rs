@@ -92,6 +92,7 @@ mod drag_surface;
 mod drag_surface_size;
 mod draw_context;
 mod drop;
+mod flags;
 mod focus_event;
 mod functions;
 mod gl_texture;
@@ -125,6 +126,7 @@ pub use display::Backend;
 #[cfg(feature = "v4_12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "v4_12")))]
 pub use drag_surface_size::DragSurfaceSize;
+pub use flags::PaintableFlags;
 pub use functions::*;
 pub use keymap_key::KeymapKey;
 pub use keys::Key;

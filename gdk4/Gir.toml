@@ -49,7 +49,6 @@ generate = [
     "Gdk.NotifyType",
     "Gdk.PadEvent",
     "Gdk.Paintable",
-    "Gdk.PaintableFlags",
     "Gdk.ProximityEvent",
     "Gdk.ScrollDirection",
     "Gdk.ScrollRelativeDirection",
@@ -620,6 +619,12 @@ name = "Gdk.Monitor"
 status = "generate"
 final_type = false
 generate_builder = false
+
+[[object]]
+name = "Gdk.PaintableFlags"
+# Added with the goal of not breaking API for 0.10.3. This should be generated
+# automatically again in 0.11.0.
+status = "manual"
 
 [[object]]
 name = "Gdk.Popup"

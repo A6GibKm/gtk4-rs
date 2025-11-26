@@ -278,7 +278,6 @@ pub use self::flags::AxisFlags;
 pub use self::flags::DragAction;
 pub use self::flags::FrameClockPhase;
 pub use self::flags::ModifierType;
-pub use self::flags::PaintableFlags;
 pub use self::flags::SeatCapabilities;
 #[cfg(feature = "v4_20")]
 #[cfg_attr(docsrs, doc(cfg(feature = "v4_20")))]
