@@ -4,7 +4,7 @@ use std::cmp;
 
 use glib::{translate::*, Quark};
 
-use crate::{ffi, prelude::*, CssParserWarning, Ordering};
+use crate::{ffi, prelude::*, ConstraintVflParserError, CssParserWarning, Ordering};
 
 impl From<cmp::Ordering> for Ordering {
     #[inline]
@@ -200,4 +200,27 @@ impl From<Align> for glib::Value {
         skip_assert_initialized!();
         glib::value::ToValue::to_value(&v)
     }
+}
+
+// TODO Remove for 0.11.0.
+#[allow(non_upper_case_globals)]
+impl ConstraintVflParserError {
+    #[doc(alias = "GTK_CONSTRAINT_VFL_PARSER_ERROR_INVALID_SYMBOL")]
+    #[deprecated(since = "0.10.3", note = "Please use InvalidSymbol instead")]
+    pub const Symbol: ConstraintVflParserError = ConstraintVflParserError::InvalidSymbol;
+    #[doc(alias = "GTK_CONSTRAINT_VFL_PARSER_ERROR_INVALID_ATTRIBUTE")]
+    #[deprecated(since = "0.10.3", note = "Please use InvalidAttribute instead")]
+    pub const Attribute: ConstraintVflParserError = ConstraintVflParserError::InvalidAttribute;
+    #[doc(alias = "GTK_CONSTRAINT_VFL_PARSER_ERROR_INVALID_VIEW")]
+    #[deprecated(since = "0.10.3", note = "Please use InvalidView instead")]
+    pub const View: ConstraintVflParserError = ConstraintVflParserError::InvalidView;
+    #[doc(alias = "GTK_CONSTRAINT_VFL_PARSER_ERROR_INVALID_METRIC")]
+    #[deprecated(since = "0.10.3", note = "Please use InvalidMetric instead")]
+    pub const Metric: ConstraintVflParserError = ConstraintVflParserError::InvalidMetric;
+    #[doc(alias = "GTK_CONSTRAINT_VFL_PARSER_ERROR_INVALID_PRIORITY")]
+    #[deprecated(since = "0.10.3", note = "Please use InvalidPriority instead")]
+    pub const Priority: ConstraintVflParserError = ConstraintVflParserError::InvalidPriority;
+    #[doc(alias = "GTK_CONSTRAINT_VFL_PARSER_ERROR_INVALID_RELATION")]
+    #[deprecated(since = "0.10.3", note = "Please use InvalidRelation instead")]
+    pub const Relation: ConstraintVflParserError = ConstraintVflParserError::InvalidRelation;
 }
