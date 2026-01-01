@@ -10,8 +10,8 @@ glib::wrapper! {
     pub struct FrameTimings(Shared<ffi::GdkFrameTimings>);
 
     match fn {
-        ref => |ptr| ffi::gdk_frame_timings_ref(ptr),
-        unref => |ptr| ffi::gdk_frame_timings_unref(ptr),
+        ref => |ptr| unsafe { ffi::gdk_frame_timings_ref(ptr) },
+        unref => |ptr| unsafe { ffi::gdk_frame_timings_unref(ptr) },
         type_ => || ffi::gdk_frame_timings_get_type(),
     }
 }

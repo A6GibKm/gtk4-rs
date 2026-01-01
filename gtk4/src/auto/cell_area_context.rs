@@ -168,25 +168,25 @@ pub trait CellAreaContextExt: IsA<CellAreaContext> + 'static {
         }
     }
 
-    #[cfg_attr(feature = "v4_10", deprecated = "Since 4.10")]
+    #[cfg_attr(feature = "*_v4_10", deprecated = "Since 4.10")]
     #[doc(alias = "minimum-height")]
     fn minimum_height(&self) -> i32 {
         ObjectExt::property(self.as_ref(), "minimum-height")
     }
 
-    #[cfg_attr(feature = "v4_10", deprecated = "Since 4.10")]
+    #[cfg_attr(feature = "*_v4_10", deprecated = "Since 4.10")]
     #[doc(alias = "minimum-width")]
     fn minimum_width(&self) -> i32 {
         ObjectExt::property(self.as_ref(), "minimum-width")
     }
 
-    #[cfg_attr(feature = "v4_10", deprecated = "Since 4.10")]
+    #[cfg_attr(feature = "*_v4_10", deprecated = "Since 4.10")]
     #[doc(alias = "natural-height")]
     fn natural_height(&self) -> i32 {
         ObjectExt::property(self.as_ref(), "natural-height")
     }
 
-    #[cfg_attr(feature = "v4_10", deprecated = "Since 4.10")]
+    #[cfg_attr(feature = "*_v4_10", deprecated = "Since 4.10")]
     #[doc(alias = "natural-width")]
     fn natural_width(&self) -> i32 {
         ObjectExt::property(self.as_ref(), "natural-width")
@@ -203,8 +203,10 @@ pub trait CellAreaContextExt: IsA<CellAreaContext> + 'static {
             _param_spec: glib::ffi::gpointer,
             f: glib::ffi::gpointer,
         ) {
-            let f: &F = &*(f as *const F);
-            f(CellAreaContext::from_glib_borrow(this).unsafe_cast_ref())
+            unsafe {
+                let f: &F = &*(f as *const F);
+                f(CellAreaContext::from_glib_borrow(this).unsafe_cast_ref())
+            }
         }
         unsafe {
             let f: Box_<F> = Box_::new(f);
@@ -230,8 +232,10 @@ pub trait CellAreaContextExt: IsA<CellAreaContext> + 'static {
             _param_spec: glib::ffi::gpointer,
             f: glib::ffi::gpointer,
         ) {
-            let f: &F = &*(f as *const F);
-            f(CellAreaContext::from_glib_borrow(this).unsafe_cast_ref())
+            unsafe {
+                let f: &F = &*(f as *const F);
+                f(CellAreaContext::from_glib_borrow(this).unsafe_cast_ref())
+            }
         }
         unsafe {
             let f: Box_<F> = Box_::new(f);
@@ -257,8 +261,10 @@ pub trait CellAreaContextExt: IsA<CellAreaContext> + 'static {
             _param_spec: glib::ffi::gpointer,
             f: glib::ffi::gpointer,
         ) {
-            let f: &F = &*(f as *const F);
-            f(CellAreaContext::from_glib_borrow(this).unsafe_cast_ref())
+            unsafe {
+                let f: &F = &*(f as *const F);
+                f(CellAreaContext::from_glib_borrow(this).unsafe_cast_ref())
+            }
         }
         unsafe {
             let f: Box_<F> = Box_::new(f);
@@ -284,8 +290,10 @@ pub trait CellAreaContextExt: IsA<CellAreaContext> + 'static {
             _param_spec: glib::ffi::gpointer,
             f: glib::ffi::gpointer,
         ) {
-            let f: &F = &*(f as *const F);
-            f(CellAreaContext::from_glib_borrow(this).unsafe_cast_ref())
+            unsafe {
+                let f: &F = &*(f as *const F);
+                f(CellAreaContext::from_glib_borrow(this).unsafe_cast_ref())
+            }
         }
         unsafe {
             let f: Box_<F> = Box_::new(f);

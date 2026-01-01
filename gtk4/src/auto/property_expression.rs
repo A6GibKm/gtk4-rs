@@ -10,8 +10,8 @@ glib::wrapper! {
     pub struct PropertyExpression(Shared<ffi::GtkPropertyExpression>);
 
     match fn {
-        ref => |ptr| ffi::gtk_expression_ref(ptr as *mut ffi::GtkExpression),
-        unref => |ptr| ffi::gtk_expression_unref(ptr as *mut ffi::GtkExpression),
+        ref => |ptr| unsafe { ffi::gtk_expression_ref(ptr as *mut ffi::GtkExpression) },
+        unref => |ptr| unsafe { ffi::gtk_expression_unref(ptr as *mut ffi::GtkExpression) },
     }
 }
 

@@ -10,8 +10,8 @@ glib::wrapper! {
     pub struct Path(Shared<ffi::GskPath>);
 
     match fn {
-        ref => |ptr| ffi::gsk_path_ref(ptr),
-        unref => |ptr| ffi::gsk_path_unref(ptr),
+        ref => |ptr| unsafe { ffi::gsk_path_ref(ptr) },
+        unref => |ptr| unsafe { ffi::gsk_path_unref(ptr) },
         type_ => || ffi::gsk_path_get_type(),
     }
 }

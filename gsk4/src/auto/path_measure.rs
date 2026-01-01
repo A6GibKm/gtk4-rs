@@ -10,8 +10,8 @@ glib::wrapper! {
     pub struct PathMeasure(Shared<ffi::GskPathMeasure>);
 
     match fn {
-        ref => |ptr| ffi::gsk_path_measure_ref(ptr),
-        unref => |ptr| ffi::gsk_path_measure_unref(ptr),
+        ref => |ptr| unsafe { ffi::gsk_path_measure_ref(ptr) },
+        unref => |ptr| unsafe { ffi::gsk_path_measure_unref(ptr) },
         type_ => || ffi::gsk_path_measure_get_type(),
     }
 }

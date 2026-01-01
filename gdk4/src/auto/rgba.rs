@@ -9,8 +9,8 @@ glib::wrapper! {
     pub struct RGBA(BoxedInline<ffi::GdkRGBA>);
 
     match fn {
-        copy => |ptr| ffi::gdk_rgba_copy(ptr),
-        free => |ptr| ffi::gdk_rgba_free(ptr),
+        copy => |ptr| unsafe { ffi::gdk_rgba_copy(ptr) },
+        free => |ptr| unsafe { ffi::gdk_rgba_free(ptr) },
         type_ => || ffi::gdk_rgba_get_type(),
     }
 }

@@ -10,8 +10,8 @@ glib::wrapper! {
     pub struct Bitset(Shared<ffi::GtkBitset>);
 
     match fn {
-        ref => |ptr| ffi::gtk_bitset_ref(ptr),
-        unref => |ptr| ffi::gtk_bitset_unref(ptr),
+        ref => |ptr| unsafe { ffi::gtk_bitset_ref(ptr) },
+        unref => |ptr| unsafe { ffi::gtk_bitset_unref(ptr) },
         type_ => || ffi::gtk_bitset_get_type(),
     }
 }

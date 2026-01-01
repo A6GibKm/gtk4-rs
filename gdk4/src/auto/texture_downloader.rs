@@ -13,8 +13,8 @@ glib::wrapper! {
     pub struct TextureDownloader(Boxed<ffi::GdkTextureDownloader>);
 
     match fn {
-        copy => |ptr| ffi::gdk_texture_downloader_copy(ptr),
-        free => |ptr| ffi::gdk_texture_downloader_free(ptr),
+        copy => |ptr| unsafe { ffi::gdk_texture_downloader_copy(ptr) },
+        free => |ptr| unsafe { ffi::gdk_texture_downloader_free(ptr) },
         type_ => || ffi::gdk_texture_downloader_get_type(),
     }
 }

@@ -37,39 +37,39 @@ impl ShortcutsShortcut {
         ObjectExt::set_property(self, "accel-size-group", accel_size_group)
     }
 
-    #[cfg_attr(feature = "v4_18", deprecated = "Since 4.18")]
+    #[cfg_attr(feature = "*_v4_18", deprecated = "Since 4.18")]
     pub fn accelerator(&self) -> Option<glib::GString> {
         ObjectExt::property(self, "accelerator")
     }
 
-    #[cfg_attr(feature = "v4_18", deprecated = "Since 4.18")]
+    #[cfg_attr(feature = "*_v4_18", deprecated = "Since 4.18")]
     pub fn set_accelerator(&self, accelerator: Option<&str>) {
         ObjectExt::set_property(self, "accelerator", accelerator)
     }
 
-    #[cfg_attr(feature = "v4_18", deprecated = "Since 4.18")]
+    #[cfg_attr(feature = "*_v4_18", deprecated = "Since 4.18")]
     #[doc(alias = "action-name")]
     pub fn action_name(&self) -> Option<glib::GString> {
         ObjectExt::property(self, "action-name")
     }
 
-    #[cfg_attr(feature = "v4_18", deprecated = "Since 4.18")]
+    #[cfg_attr(feature = "*_v4_18", deprecated = "Since 4.18")]
     #[doc(alias = "action-name")]
     pub fn set_action_name(&self, action_name: Option<&str>) {
         ObjectExt::set_property(self, "action-name", action_name)
     }
 
-    #[cfg_attr(feature = "v4_18", deprecated = "Since 4.18")]
+    #[cfg_attr(feature = "gio_v4_18", deprecated = "Since 4.18")]
     pub fn icon(&self) -> Option<gio::Icon> {
         ObjectExt::property(self, "icon")
     }
 
-    #[cfg_attr(feature = "v4_18", deprecated = "Since 4.18")]
+    #[cfg_attr(feature = "gio_v4_18", deprecated = "Since 4.18")]
     pub fn set_icon<P: IsA<gio::Icon>>(&self, icon: Option<&P>) {
         ObjectExt::set_property(self, "icon", icon)
     }
 
-    #[cfg_attr(feature = "v4_18", deprecated = "Since 4.18")]
+    #[cfg_attr(feature = "*_v4_18", deprecated = "Since 4.18")]
     #[doc(alias = "icon-set")]
     pub fn is_icon_set(&self) -> bool {
         ObjectExt::property(self, "icon-set")
@@ -87,28 +87,28 @@ impl ShortcutsShortcut {
         ObjectExt::set_property(self, "shortcut-type", shortcut_type)
     }
 
-    #[cfg_attr(feature = "v4_18", deprecated = "Since 4.18")]
+    #[cfg_attr(feature = "*_v4_18", deprecated = "Since 4.18")]
     pub fn subtitle(&self) -> Option<glib::GString> {
         ObjectExt::property(self, "subtitle")
     }
 
-    #[cfg_attr(feature = "v4_18", deprecated = "Since 4.18")]
+    #[cfg_attr(feature = "*_v4_18", deprecated = "Since 4.18")]
     pub fn set_subtitle(&self, subtitle: Option<&str>) {
         ObjectExt::set_property(self, "subtitle", subtitle)
     }
 
-    #[cfg_attr(feature = "v4_18", deprecated = "Since 4.18")]
+    #[cfg_attr(feature = "*_v4_18", deprecated = "Since 4.18")]
     #[doc(alias = "subtitle-set")]
     pub fn is_subtitle_set(&self) -> bool {
         ObjectExt::property(self, "subtitle-set")
     }
 
-    #[cfg_attr(feature = "v4_18", deprecated = "Since 4.18")]
+    #[cfg_attr(feature = "*_v4_18", deprecated = "Since 4.18")]
     pub fn title(&self) -> Option<glib::GString> {
         ObjectExt::property(self, "title")
     }
 
-    #[cfg_attr(feature = "v4_18", deprecated = "Since 4.18")]
+    #[cfg_attr(feature = "*_v4_18", deprecated = "Since 4.18")]
     pub fn set_title(&self, title: Option<&str>) {
         ObjectExt::set_property(self, "title", title)
     }
@@ -129,8 +129,10 @@ impl ShortcutsShortcut {
             _param_spec: glib::ffi::gpointer,
             f: glib::ffi::gpointer,
         ) {
-            let f: &F = &*(f as *const F);
-            f(&from_glib_borrow(this))
+            unsafe {
+                let f: &F = &*(f as *const F);
+                f(&from_glib_borrow(this))
+            }
         }
         unsafe {
             let f: Box_<F> = Box_::new(f);
@@ -153,8 +155,10 @@ impl ShortcutsShortcut {
             _param_spec: glib::ffi::gpointer,
             f: glib::ffi::gpointer,
         ) {
-            let f: &F = &*(f as *const F);
-            f(&from_glib_borrow(this))
+            unsafe {
+                let f: &F = &*(f as *const F);
+                f(&from_glib_borrow(this))
+            }
         }
         unsafe {
             let f: Box_<F> = Box_::new(f);
@@ -177,8 +181,10 @@ impl ShortcutsShortcut {
             _param_spec: glib::ffi::gpointer,
             f: glib::ffi::gpointer,
         ) {
-            let f: &F = &*(f as *const F);
-            f(&from_glib_borrow(this))
+            unsafe {
+                let f: &F = &*(f as *const F);
+                f(&from_glib_borrow(this))
+            }
         }
         unsafe {
             let f: Box_<F> = Box_::new(f);
@@ -201,8 +207,10 @@ impl ShortcutsShortcut {
             _param_spec: glib::ffi::gpointer,
             f: glib::ffi::gpointer,
         ) {
-            let f: &F = &*(f as *const F);
-            f(&from_glib_borrow(this))
+            unsafe {
+                let f: &F = &*(f as *const F);
+                f(&from_glib_borrow(this))
+            }
         }
         unsafe {
             let f: Box_<F> = Box_::new(f);
@@ -225,8 +233,10 @@ impl ShortcutsShortcut {
             _param_spec: glib::ffi::gpointer,
             f: glib::ffi::gpointer,
         ) {
-            let f: &F = &*(f as *const F);
-            f(&from_glib_borrow(this))
+            unsafe {
+                let f: &F = &*(f as *const F);
+                f(&from_glib_borrow(this))
+            }
         }
         unsafe {
             let f: Box_<F> = Box_::new(f);
@@ -249,8 +259,10 @@ impl ShortcutsShortcut {
             _param_spec: glib::ffi::gpointer,
             f: glib::ffi::gpointer,
         ) {
-            let f: &F = &*(f as *const F);
-            f(&from_glib_borrow(this))
+            unsafe {
+                let f: &F = &*(f as *const F);
+                f(&from_glib_borrow(this))
+            }
         }
         unsafe {
             let f: Box_<F> = Box_::new(f);
@@ -275,8 +287,10 @@ impl ShortcutsShortcut {
             _param_spec: glib::ffi::gpointer,
             f: glib::ffi::gpointer,
         ) {
-            let f: &F = &*(f as *const F);
-            f(&from_glib_borrow(this))
+            unsafe {
+                let f: &F = &*(f as *const F);
+                f(&from_glib_borrow(this))
+            }
         }
         unsafe {
             let f: Box_<F> = Box_::new(f);
@@ -299,8 +313,10 @@ impl ShortcutsShortcut {
             _param_spec: glib::ffi::gpointer,
             f: glib::ffi::gpointer,
         ) {
-            let f: &F = &*(f as *const F);
-            f(&from_glib_borrow(this))
+            unsafe {
+                let f: &F = &*(f as *const F);
+                f(&from_glib_borrow(this))
+            }
         }
         unsafe {
             let f: Box_<F> = Box_::new(f);
@@ -323,8 +339,10 @@ impl ShortcutsShortcut {
             _param_spec: glib::ffi::gpointer,
             f: glib::ffi::gpointer,
         ) {
-            let f: &F = &*(f as *const F);
-            f(&from_glib_borrow(this))
+            unsafe {
+                let f: &F = &*(f as *const F);
+                f(&from_glib_borrow(this))
+            }
         }
         unsafe {
             let f: Box_<F> = Box_::new(f);
@@ -347,8 +365,10 @@ impl ShortcutsShortcut {
             _param_spec: glib::ffi::gpointer,
             f: glib::ffi::gpointer,
         ) {
-            let f: &F = &*(f as *const F);
-            f(&from_glib_borrow(this))
+            unsafe {
+                let f: &F = &*(f as *const F);
+                f(&from_glib_borrow(this))
+            }
         }
         unsafe {
             let f: Box_<F> = Box_::new(f);
@@ -373,8 +393,10 @@ impl ShortcutsShortcut {
             _param_spec: glib::ffi::gpointer,
             f: glib::ffi::gpointer,
         ) {
-            let f: &F = &*(f as *const F);
-            f(&from_glib_borrow(this))
+            unsafe {
+                let f: &F = &*(f as *const F);
+                f(&from_glib_borrow(this))
+            }
         }
         unsafe {
             let f: Box_<F> = Box_::new(f);

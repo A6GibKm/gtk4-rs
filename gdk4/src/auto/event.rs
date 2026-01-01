@@ -13,8 +13,8 @@ glib::wrapper! {
     pub struct Event(Shared<ffi::GdkEvent>);
 
     match fn {
-        ref => |ptr| ffi::gdk_event_ref(ptr),
-        unref => |ptr| ffi::gdk_event_unref(ptr),
+        ref => |ptr| unsafe { ffi::gdk_event_ref(ptr) },
+        unref => |ptr| unsafe { ffi::gdk_event_unref(ptr) },
     }
 }
 

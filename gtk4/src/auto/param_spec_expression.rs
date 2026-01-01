@@ -10,8 +10,8 @@ glib::wrapper! {
     pub struct ParamSpecExpression(Shared<ffi::GtkParamSpecExpression>);
 
     match fn {
-        ref => |ptr| glib::gobject_ffi::g_param_spec_ref_sink(ptr as *mut glib::gobject_ffi::GParamSpec),
-        unref => |ptr| glib::gobject_ffi::g_param_spec_unref(ptr as *mut glib::gobject_ffi::GParamSpec),
+        ref => |ptr| unsafe { glib::gobject_ffi::g_param_spec_ref_sink(ptr as *mut glib::gobject_ffi::GParamSpec) },
+        unref => |ptr| unsafe { glib::gobject_ffi::g_param_spec_unref(ptr as *mut glib::gobject_ffi::GParamSpec) },
     }
 }
 

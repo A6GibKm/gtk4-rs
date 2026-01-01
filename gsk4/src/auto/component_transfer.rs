@@ -10,8 +10,8 @@ glib::wrapper! {
     pub struct ComponentTransfer(Boxed<ffi::GskComponentTransfer>);
 
     match fn {
-        copy => |ptr| ffi::gsk_component_transfer_copy(ptr),
-        free => |ptr| ffi::gsk_component_transfer_free(ptr),
+        copy => |ptr| unsafe { ffi::gsk_component_transfer_copy(ptr) },
+        free => |ptr| unsafe { ffi::gsk_component_transfer_free(ptr) },
         type_ => || ffi::gsk_component_transfer_get_type(),
     }
 }

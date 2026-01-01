@@ -10,8 +10,8 @@ glib::wrapper! {
     pub struct PrintSetup(Shared<ffi::GtkPrintSetup>);
 
     match fn {
-        ref => |ptr| ffi::gtk_print_setup_ref(ptr),
-        unref => |ptr| ffi::gtk_print_setup_unref(ptr),
+        ref => |ptr| unsafe { ffi::gtk_print_setup_ref(ptr) },
+        unref => |ptr| unsafe { ffi::gtk_print_setup_unref(ptr) },
         type_ => || ffi::gtk_print_setup_get_type(),
     }
 }

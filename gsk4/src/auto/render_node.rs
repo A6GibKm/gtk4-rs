@@ -10,8 +10,8 @@ glib::wrapper! {
     pub struct RenderNode(Shared<ffi::GskRenderNode>);
 
     match fn {
-        ref => |ptr| ffi::gsk_render_node_ref(ptr),
-        unref => |ptr| ffi::gsk_render_node_unref(ptr),
+        ref => |ptr| unsafe { ffi::gsk_render_node_ref(ptr) },
+        unref => |ptr| unsafe { ffi::gsk_render_node_unref(ptr) },
     }
 }
 

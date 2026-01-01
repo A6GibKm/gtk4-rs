@@ -10,8 +10,8 @@ glib::wrapper! {
     pub struct ContentFormatsBuilder(Shared<ffi::GdkContentFormatsBuilder>);
 
     match fn {
-        ref => |ptr| ffi::gdk_content_formats_builder_ref(ptr),
-        unref => |ptr| ffi::gdk_content_formats_builder_unref(ptr),
+        ref => |ptr| unsafe { ffi::gdk_content_formats_builder_ref(ptr) },
+        unref => |ptr| unsafe { ffi::gdk_content_formats_builder_unref(ptr) },
         type_ => || ffi::gdk_content_formats_builder_get_type(),
     }
 }

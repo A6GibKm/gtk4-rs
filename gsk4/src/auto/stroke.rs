@@ -10,8 +10,8 @@ glib::wrapper! {
     pub struct Stroke(Boxed<ffi::GskStroke>);
 
     match fn {
-        copy => |ptr| ffi::gsk_stroke_copy(ptr),
-        free => |ptr| ffi::gsk_stroke_free(ptr),
+        copy => |ptr| unsafe { ffi::gsk_stroke_copy(ptr) },
+        free => |ptr| unsafe { ffi::gsk_stroke_free(ptr) },
         type_ => || ffi::gsk_stroke_get_type(),
     }
 }

@@ -540,7 +540,7 @@ pub trait DialogExt: IsA<Dialog> + 'static {
         }
     }
 
-    #[cfg_attr(feature = "v4_10", deprecated = "Since 4.10")]
+    #[cfg_attr(feature = "*_v4_10", deprecated = "Since 4.10")]
     #[doc(alias = "use-header-bar")]
     fn use_header_bar(&self) -> i32 {
         ObjectExt::property(self.as_ref(), "use-header-bar")
@@ -553,8 +553,10 @@ pub trait DialogExt: IsA<Dialog> + 'static {
             this: *mut ffi::GtkDialog,
             f: glib::ffi::gpointer,
         ) {
-            let f: &F = &*(f as *const F);
-            f(Dialog::from_glib_borrow(this).unsafe_cast_ref())
+            unsafe {
+                let f: &F = &*(f as *const F);
+                f(Dialog::from_glib_borrow(this).unsafe_cast_ref())
+            }
         }
         unsafe {
             let f: Box_<F> = Box_::new(f);
@@ -584,11 +586,13 @@ pub trait DialogExt: IsA<Dialog> + 'static {
             response_id: ffi::GtkResponseType,
             f: glib::ffi::gpointer,
         ) {
-            let f: &F = &*(f as *const F);
-            f(
-                Dialog::from_glib_borrow(this).unsafe_cast_ref(),
-                from_glib(response_id),
-            )
+            unsafe {
+                let f: &F = &*(f as *const F);
+                f(
+                    Dialog::from_glib_borrow(this).unsafe_cast_ref(),
+                    from_glib(response_id),
+                )
+            }
         }
         unsafe {
             let f: Box_<F> = Box_::new(f);

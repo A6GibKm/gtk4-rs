@@ -10,8 +10,8 @@ glib::wrapper! {
     pub struct TreeRowReference(Boxed<ffi::GtkTreeRowReference>);
 
     match fn {
-        copy => |ptr| ffi::gtk_tree_row_reference_copy(mut_override(ptr)),
-        free => |ptr| ffi::gtk_tree_row_reference_free(ptr),
+        copy => |ptr| unsafe { ffi::gtk_tree_row_reference_copy(mut_override(ptr)) },
+        free => |ptr| unsafe { ffi::gtk_tree_row_reference_free(ptr) },
         type_ => || ffi::gtk_tree_row_reference_get_type(),
     }
 }

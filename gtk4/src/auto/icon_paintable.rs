@@ -72,7 +72,7 @@ impl IconPaintable {
         unsafe { from_glib(ffi::gtk_icon_paintable_is_symbolic(self.to_glib_none().0)) }
     }
 
-    #[cfg_attr(feature = "v4_20", deprecated = "Since 4.20")]
+    #[cfg_attr(feature = "*_v4_20", deprecated = "Since 4.20")]
     #[doc(alias = "is-symbolic")]
     pub fn set_is_symbolic(&self, is_symbolic: bool) {
         ObjectExt::set_property(self, "is-symbolic", is_symbolic)
@@ -102,8 +102,10 @@ impl IconPaintable {
             _param_spec: glib::ffi::gpointer,
             f: glib::ffi::gpointer,
         ) {
-            let f: &F = &*(f as *const F);
-            f(&from_glib_borrow(this))
+            unsafe {
+                let f: &F = &*(f as *const F);
+                f(&from_glib_borrow(this))
+            }
         }
         unsafe {
             let f: Box_<F> = Box_::new(f);
@@ -125,8 +127,10 @@ impl IconPaintable {
             _param_spec: glib::ffi::gpointer,
             f: glib::ffi::gpointer,
         ) {
-            let f: &F = &*(f as *const F);
-            f(&from_glib_borrow(this))
+            unsafe {
+                let f: &F = &*(f as *const F);
+                f(&from_glib_borrow(this))
+            }
         }
         unsafe {
             let f: Box_<F> = Box_::new(f);
@@ -148,8 +152,10 @@ impl IconPaintable {
             _param_spec: glib::ffi::gpointer,
             f: glib::ffi::gpointer,
         ) {
-            let f: &F = &*(f as *const F);
-            f(&from_glib_borrow(this))
+            unsafe {
+                let f: &F = &*(f as *const F);
+                f(&from_glib_borrow(this))
+            }
         }
         unsafe {
             let f: Box_<F> = Box_::new(f);

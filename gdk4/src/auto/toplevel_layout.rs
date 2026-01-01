@@ -10,8 +10,8 @@ glib::wrapper! {
     pub struct ToplevelLayout(Shared<ffi::GdkToplevelLayout>);
 
     match fn {
-        ref => |ptr| ffi::gdk_toplevel_layout_ref(ptr),
-        unref => |ptr| ffi::gdk_toplevel_layout_unref(ptr),
+        ref => |ptr| unsafe { ffi::gdk_toplevel_layout_ref(ptr) },
+        unref => |ptr| unsafe { ffi::gdk_toplevel_layout_unref(ptr) },
         type_ => || ffi::gdk_toplevel_layout_get_type(),
     }
 }

@@ -10,8 +10,8 @@ glib::wrapper! {
     pub struct DNDEvent(Shared<ffi::GdkDNDEvent>);
 
     match fn {
-        ref => |ptr| ffi::gdk_event_ref(ptr as *mut ffi::GdkEvent),
-        unref => |ptr| ffi::gdk_event_unref(ptr as *mut ffi::GdkEvent),
+        ref => |ptr| unsafe { ffi::gdk_event_ref(ptr as *mut ffi::GdkEvent) },
+        unref => |ptr| unsafe { ffi::gdk_event_unref(ptr as *mut ffi::GdkEvent) },
     }
 }
 

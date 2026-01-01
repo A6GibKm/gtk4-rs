@@ -55,13 +55,13 @@ impl VolumeButton {
         VolumeButtonBuilder::new()
     }
 
-    #[cfg_attr(feature = "v4_10", deprecated = "Since 4.10")]
+    #[cfg_attr(feature = "*_v4_10", deprecated = "Since 4.10")]
     #[doc(alias = "use-symbolic")]
     pub fn uses_symbolic(&self) -> bool {
         ObjectExt::property(self, "use-symbolic")
     }
 
-    #[cfg_attr(feature = "v4_10", deprecated = "Since 4.10")]
+    #[cfg_attr(feature = "*_v4_10", deprecated = "Since 4.10")]
     #[doc(alias = "use-symbolic")]
     pub fn set_use_symbolic(&self, use_symbolic: bool) {
         ObjectExt::set_property(self, "use-symbolic", use_symbolic)
@@ -75,8 +75,10 @@ impl VolumeButton {
             _param_spec: glib::ffi::gpointer,
             f: glib::ffi::gpointer,
         ) {
-            let f: &F = &*(f as *const F);
-            f(&from_glib_borrow(this))
+            unsafe {
+                let f: &F = &*(f as *const F);
+                f(&from_glib_borrow(this))
+            }
         }
         unsafe {
             let f: Box_<F> = Box_::new(f);

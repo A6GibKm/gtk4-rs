@@ -10,8 +10,8 @@ glib::wrapper! {
     pub struct CssSection(Shared<ffi::GtkCssSection>);
 
     match fn {
-        ref => |ptr| ffi::gtk_css_section_ref(ptr),
-        unref => |ptr| ffi::gtk_css_section_unref(ptr),
+        ref => |ptr| unsafe { ffi::gtk_css_section_ref(ptr) },
+        unref => |ptr| unsafe { ffi::gtk_css_section_unref(ptr) },
         type_ => || ffi::gtk_css_section_get_type(),
     }
 }

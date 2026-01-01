@@ -46,47 +46,47 @@ impl ShortcutsSection {
         }
     }
 
-    #[cfg_attr(feature = "v4_18", deprecated = "Since 4.18")]
+    #[cfg_attr(feature = "*_v4_18", deprecated = "Since 4.18")]
     #[doc(alias = "max-height")]
     pub fn max_height(&self) -> u32 {
         ObjectExt::property(self, "max-height")
     }
 
-    #[cfg_attr(feature = "v4_18", deprecated = "Since 4.18")]
+    #[cfg_attr(feature = "*_v4_18", deprecated = "Since 4.18")]
     #[doc(alias = "max-height")]
     pub fn set_max_height(&self, max_height: u32) {
         ObjectExt::set_property(self, "max-height", max_height)
     }
 
-    #[cfg_attr(feature = "v4_18", deprecated = "Since 4.18")]
+    #[cfg_attr(feature = "*_v4_18", deprecated = "Since 4.18")]
     #[doc(alias = "section-name")]
     pub fn section_name(&self) -> Option<glib::GString> {
         ObjectExt::property(self, "section-name")
     }
 
-    #[cfg_attr(feature = "v4_18", deprecated = "Since 4.18")]
+    #[cfg_attr(feature = "*_v4_18", deprecated = "Since 4.18")]
     #[doc(alias = "section-name")]
     pub fn set_section_name(&self, section_name: Option<&str>) {
         ObjectExt::set_property(self, "section-name", section_name)
     }
 
-    #[cfg_attr(feature = "v4_18", deprecated = "Since 4.18")]
+    #[cfg_attr(feature = "*_v4_18", deprecated = "Since 4.18")]
     pub fn title(&self) -> Option<glib::GString> {
         ObjectExt::property(self, "title")
     }
 
-    #[cfg_attr(feature = "v4_18", deprecated = "Since 4.18")]
+    #[cfg_attr(feature = "*_v4_18", deprecated = "Since 4.18")]
     pub fn set_title(&self, title: Option<&str>) {
         ObjectExt::set_property(self, "title", title)
     }
 
-    #[cfg_attr(feature = "v4_18", deprecated = "Since 4.18")]
+    #[cfg_attr(feature = "*_v4_18", deprecated = "Since 4.18")]
     #[doc(alias = "view-name")]
     pub fn view_name(&self) -> Option<glib::GString> {
         ObjectExt::property(self, "view-name")
     }
 
-    #[cfg_attr(feature = "v4_18", deprecated = "Since 4.18")]
+    #[cfg_attr(feature = "*_v4_18", deprecated = "Since 4.18")]
     #[doc(alias = "view-name")]
     pub fn set_view_name(&self, view_name: Option<&str>) {
         ObjectExt::set_property(self, "view-name", view_name)
@@ -100,8 +100,10 @@ impl ShortcutsSection {
             _param_spec: glib::ffi::gpointer,
             f: glib::ffi::gpointer,
         ) {
-            let f: &F = &*(f as *const F);
-            f(&from_glib_borrow(this))
+            unsafe {
+                let f: &F = &*(f as *const F);
+                f(&from_glib_borrow(this))
+            }
         }
         unsafe {
             let f: Box_<F> = Box_::new(f);
@@ -124,8 +126,10 @@ impl ShortcutsSection {
             _param_spec: glib::ffi::gpointer,
             f: glib::ffi::gpointer,
         ) {
-            let f: &F = &*(f as *const F);
-            f(&from_glib_borrow(this))
+            unsafe {
+                let f: &F = &*(f as *const F);
+                f(&from_glib_borrow(this))
+            }
         }
         unsafe {
             let f: Box_<F> = Box_::new(f);
@@ -148,8 +152,10 @@ impl ShortcutsSection {
             _param_spec: glib::ffi::gpointer,
             f: glib::ffi::gpointer,
         ) {
-            let f: &F = &*(f as *const F);
-            f(&from_glib_borrow(this))
+            unsafe {
+                let f: &F = &*(f as *const F);
+                f(&from_glib_borrow(this))
+            }
         }
         unsafe {
             let f: Box_<F> = Box_::new(f);
@@ -172,8 +178,10 @@ impl ShortcutsSection {
             _param_spec: glib::ffi::gpointer,
             f: glib::ffi::gpointer,
         ) {
-            let f: &F = &*(f as *const F);
-            f(&from_glib_borrow(this))
+            unsafe {
+                let f: &F = &*(f as *const F);
+                f(&from_glib_borrow(this))
+            }
         }
         unsafe {
             let f: Box_<F> = Box_::new(f);

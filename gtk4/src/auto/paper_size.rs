@@ -10,8 +10,8 @@ glib::wrapper! {
     pub struct PaperSize(Boxed<ffi::GtkPaperSize>);
 
     match fn {
-        copy => |ptr| ffi::gtk_paper_size_copy(mut_override(ptr)),
-        free => |ptr| ffi::gtk_paper_size_free(ptr),
+        copy => |ptr| unsafe { ffi::gtk_paper_size_copy(mut_override(ptr)) },
+        free => |ptr| unsafe { ffi::gtk_paper_size_free(ptr) },
         type_ => || ffi::gtk_paper_size_get_type(),
     }
 }

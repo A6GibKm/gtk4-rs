@@ -10,8 +10,8 @@ glib::wrapper! {
     pub struct Transform(Shared<ffi::GskTransform>);
 
     match fn {
-        ref => |ptr| ffi::gsk_transform_ref(ptr),
-        unref => |ptr| ffi::gsk_transform_unref(ptr),
+        ref => |ptr| unsafe { ffi::gsk_transform_ref(ptr) },
+        unref => |ptr| unsafe { ffi::gsk_transform_unref(ptr) },
         type_ => || ffi::gsk_transform_get_type(),
     }
 }

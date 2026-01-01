@@ -10,8 +10,8 @@ glib::wrapper! {
     pub struct ColorState(Shared<ffi::GdkColorState>);
 
     match fn {
-        ref => |ptr| ffi::gdk_color_state_ref(ptr),
-        unref => |ptr| ffi::gdk_color_state_unref(ptr),
+        ref => |ptr| unsafe { ffi::gdk_color_state_ref(ptr) },
+        unref => |ptr| unsafe { ffi::gdk_color_state_unref(ptr) },
         type_ => || ffi::gdk_color_state_get_type(),
     }
 }

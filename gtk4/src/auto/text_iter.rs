@@ -10,8 +10,8 @@ glib::wrapper! {
     pub struct TextIter(BoxedInline<ffi::GtkTextIter>);
 
     match fn {
-        copy => |ptr| ffi::gtk_text_iter_copy(ptr),
-        free => |ptr| ffi::gtk_text_iter_free(ptr),
+        copy => |ptr| unsafe { ffi::gtk_text_iter_copy(ptr) },
+        free => |ptr| unsafe { ffi::gtk_text_iter_free(ptr) },
         type_ => || ffi::gtk_text_iter_get_type(),
     }
 }
@@ -69,10 +69,12 @@ impl TextIter {
             ch: u32,
             user_data: glib::ffi::gpointer,
         ) -> glib::ffi::gboolean {
-            let ch = std::convert::TryFrom::try_from(ch)
-                .expect("conversion from an invalid Unicode value attempted");
-            let callback = user_data as *mut P;
-            (*callback)(ch).into_glib()
+            unsafe {
+                let ch = std::convert::TryFrom::try_from(ch)
+                    .expect("conversion from an invalid Unicode value attempted");
+                let callback = user_data as *mut P;
+                (*callback)(ch).into_glib()
+            }
         }
         let pred = Some(pred_func::<P> as _);
         let super_callback0: &mut P = &mut pred_data;
@@ -337,10 +339,12 @@ impl TextIter {
             ch: u32,
             user_data: glib::ffi::gpointer,
         ) -> glib::ffi::gboolean {
-            let ch = std::convert::TryFrom::try_from(ch)
-                .expect("conversion from an invalid Unicode value attempted");
-            let callback = user_data as *mut P;
-            (*callback)(ch).into_glib()
+            unsafe {
+                let ch = std::convert::TryFrom::try_from(ch)
+                    .expect("conversion from an invalid Unicode value attempted");
+                let callback = user_data as *mut P;
+                (*callback)(ch).into_glib()
+            }
         }
         let pred = Some(pred_func::<P> as _);
         let super_callback0: &mut P = &mut pred_data;

@@ -9,8 +9,8 @@ glib::wrapper! {
     pub struct Requisition(BoxedInline<ffi::GtkRequisition>);
 
     match fn {
-        copy => |ptr| ffi::gtk_requisition_copy(ptr),
-        free => |ptr| ffi::gtk_requisition_free(ptr),
+        copy => |ptr| unsafe { ffi::gtk_requisition_copy(ptr) },
+        free => |ptr| unsafe { ffi::gtk_requisition_free(ptr) },
         type_ => || ffi::gtk_requisition_get_type(),
     }
 }

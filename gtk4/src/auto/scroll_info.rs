@@ -10,8 +10,8 @@ glib::wrapper! {
     pub struct ScrollInfo(Shared<ffi::GtkScrollInfo>);
 
     match fn {
-        ref => |ptr| ffi::gtk_scroll_info_ref(ptr),
-        unref => |ptr| ffi::gtk_scroll_info_unref(ptr),
+        ref => |ptr| unsafe { ffi::gtk_scroll_info_ref(ptr) },
+        unref => |ptr| unsafe { ffi::gtk_scroll_info_unref(ptr) },
         type_ => || ffi::gtk_scroll_info_get_type(),
     }
 }

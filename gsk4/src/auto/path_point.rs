@@ -9,8 +9,8 @@ glib::wrapper! {
     pub struct PathPoint(BoxedInline<ffi::GskPathPoint>);
 
     match fn {
-        copy => |ptr| ffi::gsk_path_point_copy(mut_override(ptr)),
-        free => |ptr| ffi::gsk_path_point_free(ptr),
+        copy => |ptr| unsafe { ffi::gsk_path_point_copy(mut_override(ptr)) },
+        free => |ptr| unsafe { ffi::gsk_path_point_free(ptr) },
         type_ => || ffi::gsk_path_point_get_type(),
     }
 }

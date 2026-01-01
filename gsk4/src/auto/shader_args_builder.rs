@@ -10,8 +10,8 @@ glib::wrapper! {
     pub struct ShaderArgsBuilder(Shared<ffi::GskShaderArgsBuilder>);
 
     match fn {
-        ref => |ptr| ffi::gsk_shader_args_builder_ref(ptr),
-        unref => |ptr| ffi::gsk_shader_args_builder_unref(ptr),
+        ref => |ptr| unsafe { ffi::gsk_shader_args_builder_ref(ptr) },
+        unref => |ptr| unsafe { ffi::gsk_shader_args_builder_unref(ptr) },
         type_ => || ffi::gsk_shader_args_builder_get_type(),
     }
 }

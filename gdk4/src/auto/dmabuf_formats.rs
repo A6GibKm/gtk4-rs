@@ -10,8 +10,8 @@ glib::wrapper! {
     pub struct DmabufFormats(Shared<ffi::GdkDmabufFormats>);
 
     match fn {
-        ref => |ptr| ffi::gdk_dmabuf_formats_ref(ptr),
-        unref => |ptr| ffi::gdk_dmabuf_formats_unref(ptr),
+        ref => |ptr| unsafe { ffi::gdk_dmabuf_formats_ref(ptr) },
+        unref => |ptr| unsafe { ffi::gdk_dmabuf_formats_unref(ptr) },
         type_ => || ffi::gdk_dmabuf_formats_get_type(),
     }
 }

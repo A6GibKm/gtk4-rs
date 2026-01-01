@@ -66,61 +66,61 @@ impl LockButton {
         }
     }
 
-    #[cfg_attr(feature = "v4_10", deprecated = "Since 4.10")]
+    #[cfg_attr(feature = "*_v4_10", deprecated = "Since 4.10")]
     #[doc(alias = "text-lock")]
     pub fn text_lock(&self) -> Option<glib::GString> {
         ObjectExt::property(self, "text-lock")
     }
 
-    #[cfg_attr(feature = "v4_10", deprecated = "Since 4.10")]
+    #[cfg_attr(feature = "*_v4_10", deprecated = "Since 4.10")]
     #[doc(alias = "text-lock")]
     pub fn set_text_lock(&self, text_lock: Option<&str>) {
         ObjectExt::set_property(self, "text-lock", text_lock)
     }
 
-    #[cfg_attr(feature = "v4_10", deprecated = "Since 4.10")]
+    #[cfg_attr(feature = "*_v4_10", deprecated = "Since 4.10")]
     #[doc(alias = "text-unlock")]
     pub fn text_unlock(&self) -> Option<glib::GString> {
         ObjectExt::property(self, "text-unlock")
     }
 
-    #[cfg_attr(feature = "v4_10", deprecated = "Since 4.10")]
+    #[cfg_attr(feature = "*_v4_10", deprecated = "Since 4.10")]
     #[doc(alias = "text-unlock")]
     pub fn set_text_unlock(&self, text_unlock: Option<&str>) {
         ObjectExt::set_property(self, "text-unlock", text_unlock)
     }
 
-    #[cfg_attr(feature = "v4_10", deprecated = "Since 4.10")]
+    #[cfg_attr(feature = "*_v4_10", deprecated = "Since 4.10")]
     #[doc(alias = "tooltip-lock")]
     pub fn tooltip_lock(&self) -> Option<glib::GString> {
         ObjectExt::property(self, "tooltip-lock")
     }
 
-    #[cfg_attr(feature = "v4_10", deprecated = "Since 4.10")]
+    #[cfg_attr(feature = "*_v4_10", deprecated = "Since 4.10")]
     #[doc(alias = "tooltip-lock")]
     pub fn set_tooltip_lock(&self, tooltip_lock: Option<&str>) {
         ObjectExt::set_property(self, "tooltip-lock", tooltip_lock)
     }
 
-    #[cfg_attr(feature = "v4_10", deprecated = "Since 4.10")]
+    #[cfg_attr(feature = "*_v4_10", deprecated = "Since 4.10")]
     #[doc(alias = "tooltip-not-authorized")]
     pub fn tooltip_not_authorized(&self) -> Option<glib::GString> {
         ObjectExt::property(self, "tooltip-not-authorized")
     }
 
-    #[cfg_attr(feature = "v4_10", deprecated = "Since 4.10")]
+    #[cfg_attr(feature = "*_v4_10", deprecated = "Since 4.10")]
     #[doc(alias = "tooltip-not-authorized")]
     pub fn set_tooltip_not_authorized(&self, tooltip_not_authorized: Option<&str>) {
         ObjectExt::set_property(self, "tooltip-not-authorized", tooltip_not_authorized)
     }
 
-    #[cfg_attr(feature = "v4_10", deprecated = "Since 4.10")]
+    #[cfg_attr(feature = "*_v4_10", deprecated = "Since 4.10")]
     #[doc(alias = "tooltip-unlock")]
     pub fn tooltip_unlock(&self) -> Option<glib::GString> {
         ObjectExt::property(self, "tooltip-unlock")
     }
 
-    #[cfg_attr(feature = "v4_10", deprecated = "Since 4.10")]
+    #[cfg_attr(feature = "*_v4_10", deprecated = "Since 4.10")]
     #[doc(alias = "tooltip-unlock")]
     pub fn set_tooltip_unlock(&self, tooltip_unlock: Option<&str>) {
         ObjectExt::set_property(self, "tooltip-unlock", tooltip_unlock)
@@ -134,8 +134,10 @@ impl LockButton {
             _param_spec: glib::ffi::gpointer,
             f: glib::ffi::gpointer,
         ) {
-            let f: &F = &*(f as *const F);
-            f(&from_glib_borrow(this))
+            unsafe {
+                let f: &F = &*(f as *const F);
+                f(&from_glib_borrow(this))
+            }
         }
         unsafe {
             let f: Box_<F> = Box_::new(f);
@@ -158,8 +160,10 @@ impl LockButton {
             _param_spec: glib::ffi::gpointer,
             f: glib::ffi::gpointer,
         ) {
-            let f: &F = &*(f as *const F);
-            f(&from_glib_borrow(this))
+            unsafe {
+                let f: &F = &*(f as *const F);
+                f(&from_glib_borrow(this))
+            }
         }
         unsafe {
             let f: Box_<F> = Box_::new(f);
@@ -182,8 +186,10 @@ impl LockButton {
             _param_spec: glib::ffi::gpointer,
             f: glib::ffi::gpointer,
         ) {
-            let f: &F = &*(f as *const F);
-            f(&from_glib_borrow(this))
+            unsafe {
+                let f: &F = &*(f as *const F);
+                f(&from_glib_borrow(this))
+            }
         }
         unsafe {
             let f: Box_<F> = Box_::new(f);
@@ -206,8 +212,10 @@ impl LockButton {
             _param_spec: glib::ffi::gpointer,
             f: glib::ffi::gpointer,
         ) {
-            let f: &F = &*(f as *const F);
-            f(&from_glib_borrow(this))
+            unsafe {
+                let f: &F = &*(f as *const F);
+                f(&from_glib_borrow(this))
+            }
         }
         unsafe {
             let f: Box_<F> = Box_::new(f);
@@ -235,8 +243,10 @@ impl LockButton {
             _param_spec: glib::ffi::gpointer,
             f: glib::ffi::gpointer,
         ) {
-            let f: &F = &*(f as *const F);
-            f(&from_glib_borrow(this))
+            unsafe {
+                let f: &F = &*(f as *const F);
+                f(&from_glib_borrow(this))
+            }
         }
         unsafe {
             let f: Box_<F> = Box_::new(f);
@@ -259,8 +269,10 @@ impl LockButton {
             _param_spec: glib::ffi::gpointer,
             f: glib::ffi::gpointer,
         ) {
-            let f: &F = &*(f as *const F);
-            f(&from_glib_borrow(this))
+            unsafe {
+                let f: &F = &*(f as *const F);
+                f(&from_glib_borrow(this))
+            }
         }
         unsafe {
             let f: Box_<F> = Box_::new(f);

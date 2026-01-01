@@ -10,8 +10,8 @@ glib::wrapper! {
     pub struct PopupLayout(Shared<ffi::GdkPopupLayout>);
 
     match fn {
-        ref => |ptr| ffi::gdk_popup_layout_ref(ptr),
-        unref => |ptr| ffi::gdk_popup_layout_unref(ptr),
+        ref => |ptr| unsafe { ffi::gdk_popup_layout_ref(ptr) },
+        unref => |ptr| unsafe { ffi::gdk_popup_layout_unref(ptr) },
         type_ => || ffi::gdk_popup_layout_get_type(),
     }
 }

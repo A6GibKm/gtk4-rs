@@ -10,8 +10,8 @@ glib::wrapper! {
     pub struct TextureScaleNode(Shared<ffi::GskTextureScaleNode>);
 
     match fn {
-        ref => |ptr| ffi::gsk_render_node_ref(ptr as *mut ffi::GskRenderNode),
-        unref => |ptr| ffi::gsk_render_node_unref(ptr as *mut ffi::GskRenderNode),
+        ref => |ptr| unsafe { ffi::gsk_render_node_ref(ptr as *mut ffi::GskRenderNode) },
+        unref => |ptr| unsafe { ffi::gsk_render_node_unref(ptr as *mut ffi::GskRenderNode) },
     }
 }
 

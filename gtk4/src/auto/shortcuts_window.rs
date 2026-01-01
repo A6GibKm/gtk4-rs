@@ -50,25 +50,25 @@ impl ShortcutsWindow {
         }
     }
 
-    #[cfg_attr(feature = "v4_18", deprecated = "Since 4.18")]
+    #[cfg_attr(feature = "*_v4_18", deprecated = "Since 4.18")]
     #[doc(alias = "section-name")]
     pub fn section_name(&self) -> Option<glib::GString> {
         ObjectExt::property(self, "section-name")
     }
 
-    #[cfg_attr(feature = "v4_18", deprecated = "Since 4.18")]
+    #[cfg_attr(feature = "*_v4_18", deprecated = "Since 4.18")]
     #[doc(alias = "section-name")]
     pub fn set_section_name(&self, section_name: Option<&str>) {
         ObjectExt::set_property(self, "section-name", section_name)
     }
 
-    #[cfg_attr(feature = "v4_18", deprecated = "Since 4.18")]
+    #[cfg_attr(feature = "*_v4_18", deprecated = "Since 4.18")]
     #[doc(alias = "view-name")]
     pub fn view_name(&self) -> Option<glib::GString> {
         ObjectExt::property(self, "view-name")
     }
 
-    #[cfg_attr(feature = "v4_18", deprecated = "Since 4.18")]
+    #[cfg_attr(feature = "*_v4_18", deprecated = "Since 4.18")]
     #[doc(alias = "view-name")]
     pub fn set_view_name(&self, view_name: Option<&str>) {
         ObjectExt::set_property(self, "view-name", view_name)
@@ -81,8 +81,10 @@ impl ShortcutsWindow {
             this: *mut ffi::GtkShortcutsWindow,
             f: glib::ffi::gpointer,
         ) {
-            let f: &F = &*(f as *const F);
-            f(&from_glib_borrow(this))
+            unsafe {
+                let f: &F = &*(f as *const F);
+                f(&from_glib_borrow(this))
+            }
         }
         unsafe {
             let f: Box_<F> = Box_::new(f);
@@ -109,8 +111,10 @@ impl ShortcutsWindow {
             this: *mut ffi::GtkShortcutsWindow,
             f: glib::ffi::gpointer,
         ) {
-            let f: &F = &*(f as *const F);
-            f(&from_glib_borrow(this))
+            unsafe {
+                let f: &F = &*(f as *const F);
+                f(&from_glib_borrow(this))
+            }
         }
         unsafe {
             let f: Box_<F> = Box_::new(f);
@@ -138,8 +142,10 @@ impl ShortcutsWindow {
             _param_spec: glib::ffi::gpointer,
             f: glib::ffi::gpointer,
         ) {
-            let f: &F = &*(f as *const F);
-            f(&from_glib_borrow(this))
+            unsafe {
+                let f: &F = &*(f as *const F);
+                f(&from_glib_borrow(this))
+            }
         }
         unsafe {
             let f: Box_<F> = Box_::new(f);
@@ -162,8 +168,10 @@ impl ShortcutsWindow {
             _param_spec: glib::ffi::gpointer,
             f: glib::ffi::gpointer,
         ) {
-            let f: &F = &*(f as *const F);
-            f(&from_glib_borrow(this))
+            unsafe {
+                let f: &F = &*(f as *const F);
+                f(&from_glib_borrow(this))
+            }
         }
         unsafe {
             let f: Box_<F> = Box_::new(f);

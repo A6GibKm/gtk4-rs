@@ -10,8 +10,8 @@ glib::wrapper! {
     pub struct TreePath(Boxed<ffi::GtkTreePath>);
 
     match fn {
-        copy => |ptr| ffi::gtk_tree_path_copy(ptr),
-        free => |ptr| ffi::gtk_tree_path_free(ptr),
+        copy => |ptr| unsafe { ffi::gtk_tree_path_copy(ptr) },
+        free => |ptr| unsafe { ffi::gtk_tree_path_free(ptr) },
         type_ => || ffi::gtk_tree_path_get_type(),
     }
 }

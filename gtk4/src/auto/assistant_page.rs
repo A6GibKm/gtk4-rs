@@ -29,12 +29,12 @@ impl AssistantPage {
         unsafe { from_glib_none(ffi::gtk_assistant_page_get_child(self.to_glib_none().0)) }
     }
 
-    #[cfg_attr(feature = "v4_10", deprecated = "Since 4.10")]
+    #[cfg_attr(feature = "*_v4_10", deprecated = "Since 4.10")]
     pub fn is_complete(&self) -> bool {
         ObjectExt::property(self, "complete")
     }
 
-    #[cfg_attr(feature = "v4_10", deprecated = "Since 4.10")]
+    #[cfg_attr(feature = "*_v4_10", deprecated = "Since 4.10")]
     pub fn set_complete(&self, complete: bool) {
         ObjectExt::set_property(self, "complete", complete)
     }
@@ -51,12 +51,12 @@ impl AssistantPage {
         ObjectExt::set_property(self, "page-type", page_type)
     }
 
-    #[cfg_attr(feature = "v4_10", deprecated = "Since 4.10")]
+    #[cfg_attr(feature = "*_v4_10", deprecated = "Since 4.10")]
     pub fn title(&self) -> Option<glib::GString> {
         ObjectExt::property(self, "title")
     }
 
-    #[cfg_attr(feature = "v4_10", deprecated = "Since 4.10")]
+    #[cfg_attr(feature = "*_v4_10", deprecated = "Since 4.10")]
     pub fn set_title(&self, title: Option<&str>) {
         ObjectExt::set_property(self, "title", title)
     }
@@ -69,8 +69,10 @@ impl AssistantPage {
             _param_spec: glib::ffi::gpointer,
             f: glib::ffi::gpointer,
         ) {
-            let f: &F = &*(f as *const F);
-            f(&from_glib_borrow(this))
+            unsafe {
+                let f: &F = &*(f as *const F);
+                f(&from_glib_borrow(this))
+            }
         }
         unsafe {
             let f: Box_<F> = Box_::new(f);
@@ -93,8 +95,10 @@ impl AssistantPage {
             _param_spec: glib::ffi::gpointer,
             f: glib::ffi::gpointer,
         ) {
-            let f: &F = &*(f as *const F);
-            f(&from_glib_borrow(this))
+            unsafe {
+                let f: &F = &*(f as *const F);
+                f(&from_glib_borrow(this))
+            }
         }
         unsafe {
             let f: Box_<F> = Box_::new(f);
@@ -117,8 +121,10 @@ impl AssistantPage {
             _param_spec: glib::ffi::gpointer,
             f: glib::ffi::gpointer,
         ) {
-            let f: &F = &*(f as *const F);
-            f(&from_glib_borrow(this))
+            unsafe {
+                let f: &F = &*(f as *const F);
+                f(&from_glib_borrow(this))
+            }
         }
         unsafe {
             let f: Box_<F> = Box_::new(f);

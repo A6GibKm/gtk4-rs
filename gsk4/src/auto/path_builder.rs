@@ -10,8 +10,8 @@ glib::wrapper! {
     pub struct PathBuilder(Shared<ffi::GskPathBuilder>);
 
     match fn {
-        ref => |ptr| ffi::gsk_path_builder_ref(ptr),
-        unref => |ptr| ffi::gsk_path_builder_unref(ptr),
+        ref => |ptr| unsafe { ffi::gsk_path_builder_ref(ptr) },
+        unref => |ptr| unsafe { ffi::gsk_path_builder_unref(ptr) },
         type_ => || ffi::gsk_path_builder_get_type(),
     }
 }
